@@ -20,7 +20,8 @@ A successful simple I Love Horses stack smash exploit for the Nintendo DS that c
 ###
 ## Special thanks to:
 * [ihaveamac](https://github.com/ihaveamac): Creating the python script
-* [jerbear64](https://github.com/jerbear64) (Tester for US/EUR versions of the exploit)
+* [jerbear64](https://github.com/jerbear64): (Tester for US/EUR versions of the exploit)
+* [RocketRobz](https://github.com/RocketRobz): Naming the exploit 
 ###
 ## Video Demonstration:
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=NOkdc7FZ9Hc
