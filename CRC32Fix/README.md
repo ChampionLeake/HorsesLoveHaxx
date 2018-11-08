@@ -3,8 +3,8 @@ A simple tool scripted in python to patch the checksums in the `I Love Horses` N
 ###
 ## Usage (Patching the savefile)
 A `I Love Horses` NDS savefile must be in the same directory as the script in order to work. Below you can run the following commands.
-* Win32: `CRCFix SoccerPwn08.sav`
-* Linux: `./CRCFix SoccerPwn08.sav`
+* Win32: `python3 *.sav`
+* Linux: `python3 *.sav`
 ###
 ## Support:
 * Supports both US & EUR savefiles of the `I Love Horses` NDS game
