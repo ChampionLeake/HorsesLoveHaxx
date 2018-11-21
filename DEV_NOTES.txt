@@ -1,6 +1,6 @@
 I Love Horses USA/EUR(NDS) DEV-NOTES!!!
 
-Savefile is approximently 0x1FFF bytes long. This game has 4 saveslots, you can easily overwrite any of them to sack on additional code
+Savefile is approximently 0x1FFF bytes long. This game has 4 saveslots, you can easily overwrite any of them to stack on additional code
 
 Savefile Structure or format:
 0x0: Magic "0x66ff00"
@@ -8,12 +8,14 @@ Savefile Structure or format:
 0x248: Save Slot-2; 0x224-bytes long (Player-name starts at the beginning of each slot)
 0x48C: Save Slot-3; 0x224-bytes long (Player-name starts at the beginning of each slot)
 0x6D0: Save Slot-4; 0x224-bytes long (Player-name starts at the beginning of each slot)
-0x915-0x933: Some type of Magic (String looks like the company name)
-0x934: CRC32; Calculating the CRC32 is fairly easy as it's using a familiar polynomial. Selected blocks from 0x0 to 0x933 should cover the checkum. (Uses little-endian)
-0xA33 and beyond: Filled with fuzzed or useless code, FF(s).
+0x915-0x933: Some type of Magic (company name?)
+0x934: CRC32; Calculating the CRC32 is fairly easy as it's using a familiar polynomial algorithm. Selected blocks(0x0 to 0x933) should cover the checksum bytes. (little-endian)
+0xA33 and beyond: Useless memory values, FF(s).
 
 Vulnerability: Stack Smash Buffer Overflow via Player Name
-The player has 12 character strings to make a Slot save, however, the string size is not checked (patch the checksums first). With a large enough string, one can overwrite the stack registers and take control of the Point Counter(0x1A7 bytes) and jump and gain code execution on the stack. Other slots can be used to execute your payload as the game will execute your overflow from the the first slot. Leaving 0x90C bytes of space from 0x4.
+The player name has a limit of 12 character strings to create the save-slot. The string length/size is not checked so using a long extensive string, one can overwrite several stack registers and take control of the Point Counter(0x1A7 bytes) and using it to jump to your unsigned code from the stack. 
+
+Other slots can be used to execute your payload as the game will execute your overflow from the the first slot. Leaving 0x90C bytes of space from 0x4.
 
 Payload Address: 0x00073860 + 0x02000000 = 0x02073860 (60 38 07 02)
 Jump Offset(in the savefile): 0x1AB
