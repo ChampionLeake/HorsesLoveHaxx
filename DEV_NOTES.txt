@@ -1,6 +1,6 @@
 I Love Horses USA/EUR(NDS) DEV-NOTES!!!
 
-Savefile is approximently 0x1FFF bytes long. This game has 4 saveslots, you can easily overwrite any of them to stack on additional code
+Savefile is approximently 0x1FFF(8 KB) bytes long. This game has 4 saveslots, you can easily overwrite any of them to stack on additional code
 
 Savefile Structure or format:
 0x0: Magic "0x66ff00"
